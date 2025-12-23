@@ -1,0 +1,7 @@
+uvicorn
+fastapi
+sqlalchemy
+pydantic
+
+python-multipart
+alembic
