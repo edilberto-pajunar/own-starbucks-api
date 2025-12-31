@@ -10,7 +10,5 @@ services:
       - .:/app
       # Persist uploaded files
       - ./uploads:/app/uploads
-      # Persist SQLite database
-      - ./data:/app/data
     environment:
       - DATABASE_URL=sqlite:///./data/sql_app.db

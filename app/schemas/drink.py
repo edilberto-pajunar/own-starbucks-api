@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class DrinkBase(BaseModel):
@@ -32,6 +32,23 @@ class DrinkCreate(BaseModel):
 class DrinkResponse(DrinkBase):
     id: int
     createdAt: datetime
+
+    class Config:
+        from_attributes = True
+
+class DrinkIngredientInfo(BaseModel):
+    id: int
+    name: str
+    type: str
+    quantity: int
+    unit: str
+    is_removable: bool
+
+    class Config:
+        from_attributes = True
+
+class DrinkWithIngredients(DrinkResponse):
+    ingredients: List[DrinkIngredientInfo] = []
 
     class Config:
         from_attributes = True

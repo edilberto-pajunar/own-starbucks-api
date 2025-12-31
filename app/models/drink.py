@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, Integer, String, DateTime
 from sqlalchemy.orm import relationship
-from datetime import datetime
+import datetime
 
 from app.config import Base
 
@@ -17,6 +17,7 @@ class Drink(Base):
     default_ice_level = Column(String)
     default_sweetness_level = Column(Integer)
     is_customizable = Column(Boolean, default=True)
-    createdAt = Column(DateTime, nullable=False, default=datetime.now)
+    createdAt = Column(DateTime, nullable=False, default=datetime.timezone.utc)
 
     ingredients = relationship("DrinkIngredient", back_populates="drink")
+    favorites = relationship("Favorite", back_populates="drink")

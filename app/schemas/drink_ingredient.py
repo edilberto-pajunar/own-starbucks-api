@@ -21,3 +21,13 @@ class DrinkIngredientResponse(DrinkIngredientBase):
     class Config:
         from_attributes = True
 
+class DrinkIngredientDetail(BaseModel):
+    id: int
+    quantity: int
+    unit: str
+    is_removable: bool
+    ingredient_name: str
+    ingredient_type: str
+
+    class Config:
+        from_attributes = True
